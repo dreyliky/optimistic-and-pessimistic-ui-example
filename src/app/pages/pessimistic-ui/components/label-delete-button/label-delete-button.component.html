@@ -1,0 +1,24 @@
+<button
+    *ngxAsync="deletingProcess$; loading: loadingTemplate; error: errorTemplate"
+    mat-icon-button
+    [color]="'warn'"
+    (click)="onClick()">
+    <mat-icon>delete_outline</mat-icon>
+</button>
+
+<ng-template #loadingTemplate>
+    <button
+        mat-icon-button
+        (click)="onClick()">
+        <mat-spinner [diameter]="24"></mat-spinner>
+    </button>
+</ng-template>
+
+<ng-template #errorTemplate>
+    <button
+        mat-icon-button
+        [color]="'warn'"
+        (click)="onClick()">
+        <mat-icon>error</mat-icon>
+    </button>
+</ng-template>

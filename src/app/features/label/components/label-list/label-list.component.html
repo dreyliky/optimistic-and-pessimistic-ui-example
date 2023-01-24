@@ -1,0 +1,23 @@
+<mat-list>
+    <mat-list-item *ngFor="let label of data">
+        <div
+            matListItemIcon
+            class="color-block"
+            [style.backgroundColor]="label.color">
+        </div>
+
+        <div matListItemTitle>
+            {{ label.name }}
+                
+            <div
+                *ngIf="actionButtonsTemplate"
+                class="action-buttons">
+                <ng-container
+                    *ngTemplateOutlet="actionButtonsTemplate; context: { $implicit: label }">
+                </ng-container>
+            </div>
+        </div>
+
+        <div matListItemLine>{{ label.date | date }}</div>
+    </mat-list-item>
+</mat-list>

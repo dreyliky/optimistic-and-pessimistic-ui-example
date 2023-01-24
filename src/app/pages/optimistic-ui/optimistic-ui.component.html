@@ -1,0 +1,49 @@
+<h1>Optimistic UI</h1>
+
+<app-label-creation-button>
+</app-label-creation-button>
+
+<ng-container *ngxAsync="labels$ as labels; loading: loadingTemplate; error: errorTemplate;">
+    <label-list
+        *ngIf="labels?.length; else emptyLabelsTemplate"
+        [data]="labels!">
+        <button mat-icon-button>
+            <mat-icon>delete</mat-icon>
+        </button>
+        <ng-template
+            labelListItemActionButtons
+            let-label>
+            <button
+                mat-icon-button
+                [color]="'warn'"
+                (click)="onDeleteButtonClick(label)">
+                <mat-icon>delete_outline</mat-icon>
+            </button>
+        </ng-template>
+    </label-list>
+</ng-container>
+
+<ng-template #loadingTemplate>
+    <div class="loading">
+        <mat-spinner
+            [diameter]="24"
+            class="spinner">
+        </mat-spinner>
+
+        <span class="mat-primary">
+            Labels are loading...
+        </span>
+    </div>
+</ng-template>
+
+<ng-template #errorTemplate>
+    <span class="error-text">
+        Something went wrong
+    </span>
+</ng-template>
+
+<ng-template #emptyLabelsTemplate>
+    <b class="empty-data-text">
+        There are no labels yet
+    </b>
+</ng-template>

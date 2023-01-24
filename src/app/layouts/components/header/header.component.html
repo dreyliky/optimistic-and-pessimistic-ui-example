@@ -1,0 +1,21 @@
+<mat-toolbar [color]="'primary'">
+    <span>Optimistic & Pessimistic UI</span>
+
+    <span class="spacer"></span>
+
+    <button
+        mat-raised-button
+        class="button"
+        [routerLink]="routeEnum.PessimisticUi"
+        [routerLinkActive]="'mat-accent'">
+        Pessimistic
+    </button>
+
+    <button
+        mat-raised-button
+        class="button"
+        [routerLink]="routeEnum.OptimisticUi"
+        [routerLinkActive]="'mat-accent'">
+        Optimistic
+    </button>
+</mat-toolbar>

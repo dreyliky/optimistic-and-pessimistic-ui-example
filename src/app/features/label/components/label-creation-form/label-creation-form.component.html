@@ -1,0 +1,24 @@
+<form [formGroup]="formGroup">
+    <p>
+        <mat-form-field [appearance]="'outline'">
+            <mat-label>Name</mat-label>
+        
+            <input
+                matInput
+                placeholder="Name"
+                [formControl]="formGroup.controls.name">
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field [appearance]="'outline'">
+            <mat-label>Color</mat-label>
+        
+            <input
+                matNativeControl
+                type="color"
+                placeholder="Color"
+                [formControl]="formGroup.controls.color">
+        </mat-form-field>
+    </p>
+</form>

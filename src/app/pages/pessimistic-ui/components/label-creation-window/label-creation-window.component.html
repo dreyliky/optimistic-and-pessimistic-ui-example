@@ -1,0 +1,41 @@
+<h1 matDialogTitle>Create Label</h1>
+
+<mat-dialog-content>
+    <label-creation-form
+        [formGroup]="labelCreationForm">
+    </label-creation-form>
+</mat-dialog-content>
+
+<mat-dialog-actions [align]="'end'">
+    <button
+        *ngxAsync="labelCreationProcess$; loading: loadingTemplate; error: errorTemplate;"
+        mat-flat-button
+        [color]="'primary'"
+        (click)="onCreateButtonClick()">
+        Create
+    </button>
+
+    <button
+        mat-button
+        [matDialogClose]="false">
+        Cancel
+    </button>
+</mat-dialog-actions>
+
+<ng-template #loadingTemplate>
+    <button
+        mat-flat-button
+        disabled
+        [color]="'primary'">
+        <mat-spinner [diameter]="25"></mat-spinner>
+    </button>
+</ng-template>
+
+<ng-template #errorTemplate>
+    <button
+        mat-flat-button
+        [color]="'warn'"
+        (click)="onCreateButtonClick()">
+        Something went wrong
+    </button>
+</ng-template>
